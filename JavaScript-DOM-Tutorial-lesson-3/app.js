@@ -16,6 +16,7 @@ books = document.querySelectorAll('#book-list li .name');
 console.log(books);
 
 // Array.from(books) changes the books span collection into an array
+
 // the .forEach statement allows you to go through each element within the array
 
 Array.from(books).forEach(function(book){
