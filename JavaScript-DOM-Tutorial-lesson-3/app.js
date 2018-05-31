@@ -1,4 +1,4 @@
-/* 
+
 
 // This program shows multiple ways of querying the DOM
 
@@ -24,7 +24,6 @@ Array.from(books).forEach(function(book){
   console.log(book);
 })
 
-*/
 
 
 
@@ -33,7 +32,7 @@ Array.from(books).forEach(function(book){
 
 
 
-/*
+
 // How to edit HTMl & insert text into the DOM 5/30/2018
 
   var books = document.querySelectorAll('#book-list li .name');
@@ -48,7 +47,7 @@ Array.from(books).forEach(function(book){
     
    bookList.innerHTML += '<p> add this to it </p>';
   
-  */
+  
   
   
   
@@ -56,7 +55,7 @@ Array.from(books).forEach(function(book){
   
     
     // Lesson 6
-    /*
+    
     const banner = document.querySelector('#page-banner');
     
     console.log('#page-banner node type is:', banner.nodeType);
@@ -67,11 +66,11 @@ Array.from(books).forEach(function(book){
       
     const clonedBanner = banner.cloneNode(true);
     console.log(clonedBanner);
-    */
     
     
     
-   /* 
+    
+    
     
     //Lesson 7 and 8
     const bookList = document.querySelector('#book-list');
@@ -89,11 +88,11 @@ Array.from(books).forEach(function(book){
     
     bookList.previousElementSibling.querySelector('h1').innerHTML += '<br> that was cool </br>';
     
-    */
     
     
     
-    /*
+    
+    
     // Lesson 9 addEventListener Very PowerFull!!!
     
     var bttn = document.querySelectorAll('#book-list .delete');
@@ -118,7 +117,7 @@ Array.from(books).forEach(function(book){
         console.log('Navigate to NBA Finals Webpage', e.target.textContent, 'has been prevented');
     });
     
-    */
+    
     
     
     
