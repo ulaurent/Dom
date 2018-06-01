@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function(){
+ // Negates the fact that script source is in th beginning of 
+ // head & not at end of code   
+
+
 
 
 // This program shows multiple ways of querying the DOM
@@ -122,6 +127,11 @@ Array.from(books).forEach(function(book){
     
     
     
+    
+    
+    
+    
+    
     //Lesson 10 Event Bubbling
     // Important to add eventListeners to the Bubbled parent node of the particular 
     // buttons you want to add an event to because if another button is added it will 
@@ -138,17 +148,130 @@ Array.from(books).forEach(function(book){
        } 
     });
     
-    // Lesson 11
     
+    
+    
+    
+    
+    
+    // Lesson 11
+    // introduces a constant and sets it equal to the one form 
+    //in the program with the ID 'add-book'
     const addForm = document.forms['add-book'];
     
+    // Adds an event listener 'submit' to addForm , then a call back function 
+    // with the argument add 
     addForm.addEventListener('submit', function(add){
+        
+    // this prevents the default action when you click on add button
         add.preventDefault();
+    // the next constant selects the query 'input' within the form
         const value = addForm.querySelector('input[type="text"]').value;
         console.log(value);
         
-    })
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // Lesson 12 Create Elements
+    // Create Elements
+    // constant li creates an 'li' list element using the dom 
+    const li = document.createElement('li');
+    // Creates an element 'span' and sets equal to bookName
+    const bookName = document.createElement('span');
+    // Creates an element 'span' and sets equal to deleteBtn
+    const deleteBtn = document.createElement('span');
+    
+    
+    // Add whats is the text content within each element 
+    deleteBtn.textContent= 'Delete';
+    bookName.textContent = value;
+    
+    //Add classes to each element we've created
+    bookName.classList.add('name');
+    deleteBtn.classList.add('delete');
+    
+    
+    
+    // Nest Elements together
+    // this appends bookName & deleteBtn to li element we created
+    li.appendChild(bookName);
+    li.appendChild(deleteBtn);
+    
+    // This appends the li element to the list constant '<ul> element'
+    list.appendChild(li);
+   
+   
+    
+    
+    
+    
+    
+    
+    // Lesson 13
+    // Add event listener to check boxes
+    // constant hide books set equal to whatever has the id hide
+    const hideBooks = document.querySelector('#hide');
+    
+    // adds an event listener to the const hideBook
+    // event listener 'change' when the checkbox is changed
+    // then a call back function with argument e 
+    hideBooks.addEventListener('change', function(e){
+        // if hideBooks checkbox is checked--
+        if (hideBooks.checked){
+            //<ul> style is set to display 'none' no books
+            list.style.display = "none";
+        }
+        else{
+            // Else <ul> style is set to display 'initial' which is the initial cook list
+            list.style.display = "initial";
+        }
+        
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    // Lesson 14 
+    // Filter through book list 
+    // Add event listener to search box to filter through what your typing
+    
+    // searchBar set to ( got to straight to forms element with ID search-books---
+    // then query to the element 'input' within the the form)
+    const searchBar = document.forms['search-books'].querySelector('input');
+    
+    // add an event listener to the search bar called 'keyup' with a callback function(e)
+    searchBar.addEventListener('keyup', function(e){
+        // (e.target.value = what user types in).toLowerCase()
+        const term = e.target.value.toLowerCase();
+        // books = <ul> and you get the element by tagname, which gives the list of all li elements 
+        const books = list.getElementsByTagName('li');
+        console.log(books);
+        // Changes books to an array then iterates through using For each loop
+        Array.from(books).forEach(function(book){
+            const title = book.firstElementChild.textContent;
+            if(title.toLowerCase().indexOf(term) != -1){
+                book.style.display = 'block';
+            }
+            else{
+                book.style.display = 'none';
+            }
+        });
+    });
+    
+    });
+    
+});
     
     
     
